@@ -19,6 +19,7 @@ foo()
 
 ```python
 import time
+
 def foo():
     start = time.clock()
     print('hello world!')
@@ -36,6 +37,7 @@ foo()
 
 ```python
 import time
+
 def foo():
     print('hello world!')
 

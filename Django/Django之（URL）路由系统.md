@@ -2,6 +2,8 @@
 
 URL 根据url不同，调用不同的view中的方法，再返回给客户端
 
+**2.0以后的url**
+
 ```python
 from django.contrib import admin
 from django.urls import path
@@ -10,9 +12,7 @@ urlpatterns = [
 ]
 ```
 
-
-
-2.0以前版本的url
+**2.0以前版本的url**
 
 ```python
 urlpatterns = [
@@ -36,17 +36,15 @@ url函数中可以传递4个参数，其中两个是必须的：regex和view，�
 
   对你的URL进行命名，可以让你能够在Django的任意处，尤其是模板内显式地引用它。相当于给URL取了个全局变量名，你只需要修改这个全局变量的值，在整个Django中引用它的地方也将同样获得改变。这是极为古老、朴素和有用的设计思想，而且这种思想无处不在。
 
-  ​
-
-1. 最基础的映射
+1. **最基础的映射**
 
    直接访问具体地址
 
-2. 动态路由
+2. **动态路由**
 
    根据正则表达式设置动态路由
 
-3. 穿参形式的路由
+3. **穿参形式的路由**
 
    将url以参数形式传递到函数中
 
@@ -70,7 +68,7 @@ url函数中可以传递4个参数，其中两个是必须的：regex和view，�
         return HttpResponse(v1+v2)
    ```
 
-4. 根据不同的app来分发不同的url
+4. **根据不同的app来分发不同的url**
 
    ```python
    url（r'^app1', include('app1.urls')）
