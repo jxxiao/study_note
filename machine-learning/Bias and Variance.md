@@ -39,7 +39,11 @@
 
 ### 1.2 图片定义
 
-![](../image/bias_and_variance.png)
+<p align="center">
+    <img src="../image/bias_and_variance.png" alt="sample" width="408" height="430.4">
+</p>
+
+
 
 [Bias and  Variance]: http://scott.fortmann-roe.com/docs/BiasVariance.html
 
