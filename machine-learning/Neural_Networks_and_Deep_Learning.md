@@ -7,9 +7,9 @@
 > 对一个由感知机组成的神经网络，假设将其中所有的权值和偏移都乘上一个正常数$c\gt0$,证明网络的行为并不会发生改变。  
 
 $$  
-f(n)
+output
 \begin{cases}
-0, &if\ w·x+b \le 0\\  
+0, &if\ w·x+b \le 0  \\
 1, &if\ w·x+b \gt 0
 \end{cases}
 $$
@@ -17,9 +17,9 @@ $$
 两边同时乘c  
 
 $$  
-f(n)
+output
 \begin{cases}
-0, &if\ cw\cdot x+cb \le 0\\  
+0, &if\ cw\cdot x+cb \le 0  \\  
 1, &if\ cw\cdot x+cb \gt 0
 \end{cases}
 $$  
