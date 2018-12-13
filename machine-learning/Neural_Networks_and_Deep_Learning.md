@@ -9,7 +9,7 @@
 $$  
 output
 \begin{cases}
-0, &if\ w·x+b \le 0  \\
+0, &if\ w·x+b \le 0 \\  
 1, &if\ w·x+b \gt 0
 \end{cases}
 $$
@@ -19,7 +19,7 @@ $$
 $$  
 output
 \begin{cases}
-0, &if\ cw\cdot x+cb \le 0  \\  
+0, &if\ cw\cdot x+cb \le 0 \ \\  
 1, &if\ cw\cdot x+cb \gt 0
 \end{cases}
 $$  
