@@ -24,11 +24,13 @@ output
 \end{cases}
 $$  
 
+$$
 f(x)=
 \begin{cases}
 n/2,&\text{if $n$ is even}\\
 3n+1,&\text{if $n$ is odd}
 \end{cases}
+$$
 
 * sigmoid神经元模拟感知机（第二部分)  
 
