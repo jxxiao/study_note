@@ -19,7 +19,7 @@ $$
 $$  
 output
 \begin{cases}
-0, &if\ cw\cdot x+cb \le 0 \ \\  
+0, &if\ cw\cdot x+cb \le 0 \\  
 1, &if\ cw\cdot x+cb \gt 0
 \end{cases}
 $$  
@@ -30,3 +30,5 @@ $$
 
 对于$sigmod()$函数来说$w\cdot x + b$乘上c不影响$w\cdot x + b\le 0$和$w\cdot x + b\gt 0$的结果。因此对于$\sigma (w\cdot x + b)\le 0$和$\sigma (w\cdot x + b)\gt 0$的结果没有影响。  
 当$w\cdot x +b = 0$时，$\sigma(w\cdot x +b)=0.5$无法判断结果，所以无法分类。
+
+
