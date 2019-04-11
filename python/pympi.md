@@ -36,16 +36,16 @@ mpi4py提供了相应的接口`Init()`和`Finalize()`来初始化和结束mpi环
 
 mpi4py直接提供了相应的通信域的Python类，其中`Comm`是通信域的基类，`Intracomm`和`Intercomm`是其派生类，这根MPI的C++实现中是相同的。
 
-同时它也提供了两个预定义的通信域对象: 
+同时它也提供了两个预定义的通信域对象:
 
-1. 包含所有进程的`COMM_WORLD`  
+1. 包含所有进程的`COMM_WORLD`
 2. 只包含调用进程本身的`COMM_SELF`
 
 ```
-In [1]: from mpi4py import MPI                  
-In [2]: MPI.COMM_SELF                           
+In [1]: from mpi4py import MPI
+In [2]: MPI.COMM_SELF
 Out[2]: <mpi4py.MPI.Intracomm at 0x7f2fa2fd59d0>
-In [3]: MPI.COMM_WORLD                          
+In [3]: MPI.COMM_WORLD
 Out[3]: <mpi4py.MPI.Intracomm at 0x7f2fa2fd59f0>
 ```
 

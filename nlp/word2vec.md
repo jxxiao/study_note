@@ -42,11 +42,9 @@ p(w_k|w_1^{k-1})\approx\frac{count(w_1^k)}{count(w_1^{k-1})} \tag{1.2}
 $$
 当$k$较大时，计算$count(w_1^k),count(w_1^{k-1})$  的统计将会耗时。
 
-
-
 如果把**$n-gram$模型​**作一个$n-1$阶的**$Markov$假设**
 $$
-p(w_k|w_1^{k-1})\approx p(w_k|w_{k-n+1}^{k-1}) 
+p(w_k|w_1^{k-1})\approx p(w_k|w_{k-n+1}^{k-1})
 $$
 
 $$
