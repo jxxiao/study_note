@@ -6,7 +6,7 @@
 
 > 对一个由感知机组成的神经网络，假设将其中所有的权值和偏移都乘上一个正常数$c\gt0$,证明网络的行为并不会发生改变。  
 
-$$  
+$$
 output
 \begin{cases}
 0, &if\ w·x+b \le 0 \\  
@@ -16,19 +16,11 @@ $$
 
 两边同时乘c  
 
-$$  
+$$
 output
 \begin{cases}
 0, &if\ cw\cdot x+cb \le 0 \\  
 1, &if\ cw\cdot x+cb \gt 0
-\end{cases}
-$$  
-
-$$
-f(x)=
-\begin{cases}
-n/2,&\text{if $n$ is even}\\
-3n+1,&\text{if $n$ is odd}
 \end{cases}
 $$
 

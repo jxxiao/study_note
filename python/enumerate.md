@@ -1,6 +1,6 @@
 # enumerate
 
-enumerate()是python的内置函数
+`enumerate()`是python的内置函数
 可以用于将可遍历的数据对象组合成一个索引序列。
 
 ```python
@@ -17,4 +17,5 @@ for i, item in enumerate(iterable):
     print(i, item)
 ```
 
-enumerate还可以接受参数。enumerate(iterable, 1)
+`enumerate`还可以接受参数。`enumerate(iterable, 1)`
+
