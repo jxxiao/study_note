@@ -5,24 +5,17 @@
 # PAC学习框架
 
 
-
-##1.PAC学习模型
+## 1.PAC学习模型
 
 介绍定义以及一些符号
-
-
 
 $\mathcal{X}:$所有可能的例子，也叫输入空间
 
 $\mathcal{Y}:$所有可能的标签或目标值。本节所有的$\mathcal{Y}$都认为是$\mathcal{Y}=\{0, 1\}$，也就是二分类
 
-
-
 $concept \ c:\mathcal{X}\to\mathcal{Y}$  $\mathcal{X}$到$\mathcal{Y}$的映射，我们可以假设$c$是$\mathcal{X}$的子集，其$\mathcal{Y}=1$。
 
 $\mathcal{C}(concept \ class)：​$我们希望学习的概念集合
-
-
 
 假设有一些样本固定但不知道分布，且是独立同分布的$\mathcal{D}​$，我们的学习问题就如下：
 
@@ -31,8 +24,6 @@ $\mathcal{C}(concept \ class)：​$我们希望学习的概念集合
 通过$\mathcal{S}$来选择一个假设$h_S\in\mathcal{H}$，其相对于$concept \ c$有一个小的泛化误差($generalization error$)。
 
 假设$h\in \mathcal{H}$的泛化误差，也被称为真实误差($true \ error$)或就叫$h$的$error$，标记为$R(h)$，定义如下：
-
-
 
 **定义1.1 泛化误差$Generalization\ error$**
 
