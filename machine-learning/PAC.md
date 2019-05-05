@@ -27,20 +27,23 @@ $\mathcal{C}(concept \ class)：​$我们希望学习的概念集合
 
 **定义1.1 泛化误差$Generalization\ error$**
 
-给定假设$h \in \mathcal{H}$，一个目标概念$target \ concept \ c \in \mathcal{C}$和一个基础分布$\mathcal{D}$，泛化误差被定义为：
+给定假设$h \in \mathcal{H}$，一个目标概念$target \ concept \ c \in \mathcal{C}$和一个基础分布$\mathcal{D}$，泛化误差被定义为:
+
 $$
 R(h)=\mathop{Pr}_{x\sim\mathcal{D}}[h(x)\neq c(x)]=\mathop{E}_{x\sim\mathcal{D}}[1_{h(x)\neq c(x)}]\tag{1.1}
 $$
+
 由于分布$\mathcal{D}$和目标概念($concept \ c$)是未知的，因此学习者无法直接获得假设的泛化误差，但是学习者可以一个假设在标签样本$\mathcal(S)$上的经验误差($emprical \ error$)。
 
 **定义1.2经验误差$Empirical \ error$**
 
 给定假设$h \in \mathcal{H}$，一个目标概念$target \ concept \ c\in \mathcal{C}$和一个样本$\mathcal{S}=(x_1,…,x_m)$，经验误差被定义为：
+
 $$
 \hat{R}(h)=\frac{1}{m}\sum_{i=1}^{m}1_{h(x_i)\neq c(x_i)} \tag{1.2}
 $$
-因此，$h\in\mathcal{H}​$的经验误差是样本$\mathcal{S}​$的平均误差，而泛化误差是基于分布$\mathcal{D}​$的期望误差。
 
+因此，$h\in\mathcal{H}​$的经验误差是样本$\mathcal{S}​$的平均误差，而泛化误差是基于分布$\mathcal{D}​$的期望误差。
 
 $$
 E[\hat{R}(h)]=R(h) \tag{1.3}
