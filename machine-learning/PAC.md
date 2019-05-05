@@ -1,4 +1,7 @@
-# 
+---
+export_on_save:
+ html: true
+---
 
 [TOC]
 
@@ -124,13 +127,15 @@ $$
 E(e^{\lambda x})\leq\frac{b}{b-a}e^{\lambda a}-\frac{a}{b-a}e^{\lambda b} \tag{3.2.2}
 $$
 做变量代换，令$h=\lambda (b-a), p=\frac{-a}{b-a}​$，构造函数$L(h)=-hp+ln(1-p+pe^h)​$
+
 $$
-\begin{align}
+\begin{aligned}
 e^{L(h)}&=e^{-hp+ln(1-p+pe^h)}\\
 &=(1-p+pe^h)e^{-hp} \\
 &=\frac{b}{b-a}e^{\lambda a}-\frac{a}{b-a}e^{\lambda b}
-\end{align} \tag{3.2.3}
+\end{aligned} \tag{3.2.3}
 $$
+
 根据 公式3.2.2 公式3.2.3所以$E(e^{\lambda x})\leq e^{L(h)}$，若证明$E(e^{\lambda x})\leq e^{L(h)}\leq e^{\frac{\lambda^2(b-a)^2}{8}}$即可。
 
 证明$L(h)\leq e^{\frac{\lambda^2(b-a)^2}{8}}=\frac{h^2}{8}​$，令
@@ -157,33 +162,31 @@ $$
 
 
 马尔科夫不等式：
+
 $$
 Pr(X>a)<\frac{E(X)}{a}
 $$
+
 证明:
+
 $$
-\begin{align}
+\begin{aligned}
 E(X)&=\int_0^{\infty}xp(x)dx\\
 &\ge\int_a^{\infty}xp(x)dx\\
 &\ge a\int_a^{\infty} p(x)dx\\
 &=a*Pr(x>a)\\
-
-故：Pr(x>a)&<\frac{E(x)}{a}
-\end{align}
+故：\\&Pr(x>a)<\frac{E(x)}{a}
+\end{aligned}
 $$
-
-
-
 
 **证明Hoeffding‘s Inequality：**
 
 设$X_i=Z_i-E(Z_i),\bar{X}=\frac{1}{m}\sum_{i=1}^{m}X_i$，根据指数函数和Morkov不等式，对于$\forall \lambda>0,\epsilon>0$
 $$
-\begin{align}
+\begin{aligned}
 &P(|\frac{1}{m}\sum_{i=1}^{m}Z_i-E(Z)|\ge\epsilon)\leq2e^{\frac{-2m\epsilon^2}{(b-a)^2}}\\
-
 &P(\bar{X}\ge\epsilon)=P(e^{\lambda\bar{X}}\ge e^{\lambda\epsilon})\leq\frac{E(e^{\lambda\bar{X}})}{e^{\lambda\epsilon}}
-\end{align}\tag{1}
+\end{aligned}\tag{1}
 $$
 
 $$
@@ -228,10 +231,10 @@ $$
 
 故：
 $$
-\begin{align}
+\begin{aligned}
 \mathop{Pr}_{S\sim D^m}[R(h)-\hat{R}(h)\leq\sqrt\frac{log\frac{2}{\delta}}{2m}]&\ge\mathop{Pr}_{S\sim D^m}[\hat{R}(h)-R(h)\leq\sqrt\frac{log\frac{2}{\delta}}{2m}]\\
 &\ge 1-\delta
-\end{align}
+\end{aligned}
 $$
 
 
@@ -245,22 +248,18 @@ $$
 
 证明：
 $$
-\begin{align}
+\begin{aligned}
 &P[\exists h\in \mathop{H}|\hat{R}(h)-R(h)>\epsilon]\\
 =&Pr[(|\hat{R}(h_1)-R(h_1)|>\epsilon)\lor(|\hat{R}(h_2)-R(h_2)|>\epsilon)\lor ... \lor(|\hat{R}(h_1)-R(h_1)|>\epsilon)]\\
 \leq&\sum_{h\in\mathop{H}}Pr[(|\hat{R}(h)-R(h)|>\epsilon)]\\
 \leq&2|\mathop{H}|e^{-2m\epsilon^2}
-\end{align}
+\end{aligned}
 $$
 令$\delta = 2|\mathop{H}|e^{-2m\epsilon^2}$，也就是$\epsilon=\sqrt{\frac{log|H|+log\frac{2}{\delta}}{2m}}$，带入即可得：
 $$
 \forall h\in \mathcal{H},R(h)\leq\hat{R}(h)+\sqrt{\frac{log|H|+log\frac{2}{\delta}}{2m}}
 $$
 
-
 ## 4 概括
 
 本节，将考虑几个与学习场景相关的重要问题。
-
-
-
