@@ -71,10 +71,13 @@ $$
 \mathcal{L} = \sum_{w\in C}log\ p(w|Context(w))
 $$
 
-
 ### 1.3 神经概率语言模型
 
-投影层：$（n-1）m​$
+![Netural-Net](../image/Netural-Net.png)
+
+输入层：将$n-1​$个词首尾拼接
+
+投影层：长度为$（n-1）m$
 
 输出层：$N=|\mathcal{D}|​$
 $$
@@ -83,8 +86,12 @@ z_w = tahh(Wx_w+p)\\
 y_w = Uz_w + q
 \end{cases}
 $$
-$tanh$为**双曲正切函数**， 
+$tanh$为**双曲正切函数**， 用来做隐藏层的**激活函数**，为了使其表示为概率还需要做一个**softmax**归一化，此时$p(w|Context(w))$就可以表示为：
+$$
+p(w|Context(w))=\frac{e^{y_w,i_w}}{\sum_{i=1}^{N}e^{y_w,i}}
+$$
 
+$i_w$表示词$w$在词典$\mathcal{D}$中的索引。
 
 
 ## 2 基于Hierarchical Softmax模型
@@ -94,4 +101,70 @@ $tanh$为**双曲正切函数**，
 前者是根据上下文$w_{t-2},w_{t-1},w_{t+1},w_{t+2}$预测词向量$w_t$，后者是根据词向量$w_t$预测上下文$w_{t-2},w_{t-1},w_{t+1},w_{t+2}$。
 
 ![CBOW AND Skip](../image/CBOW AND Skip.png)
+
+取**对数似然函数**：
+$$
+\mathcal{L} = \sum_{w\in \mathcal{C}}log\ p(w|Context(w)) \tag{2.1}
+$$
+优化目标函数：
+
+基于Hierarchical Softmax的CBOW模型：公式2.1
+
+基于Hierarchical Softmax的Skip-gram模型：
+$$
+\mathcal{L}=\sum_{w\in \mathcal{C}}log\ p(Context(w)|w) \tag{2.2}
+$$
+
+
+### 2.1 CBOW模型
+
+本节介绍CBOW模型，CBOW预测的事的目标是为了最大化$p(w|Context(w))$，$\mathcal{L}=\sum_{w\in\mathcal{C}}logp(w|Context(w))$
+
+#### 2.1.1 网络结构
+
+![CBOW](../image/CBOW.png)
+
+1. **输入层：**包含$Context(w)$
+2. **投影层：**$2c$个向量求和累加
+3. **输出层：**输出一棵二叉树
+
+#### 2.1.2 梯度计算
+
+考虑**叶子结点**，假设其对应字典$\mathcal{D}$中的词$w$，
+
+$p^w$：
+
+$l^w$：
+
+$p_1^w,p_2^w,…,p_{l^w}^w​$：
+
+$d_2^w,d_3^w…,d_{l^w}^w\in \{0,1\}$：
+
+$\theta_1^w,\theta_2^w,…,\theta_{l^w-1}^w\in \mathbb{R}^m$:路径$p^w$
+
+
+$$
+Lael(p_i^w)=1-d_i^w,i=2,3,...,l^w
+$$
+简而言之**左边负类，右边正类**。
+
+一个节点被分为正类的概率：
+$$
+\sigma\left(\mathbf{x}_{w}^{\top} \theta\right)=\frac{1}{1+e^{-\mathbf{x}_{w}^{\top}} \theta}
+$$
+负类的概率：
+$$
+1-\sigma\left(\mathbf{x}_{w}^{\top} \theta\right)
+$$
+
+
+### 2.2 Skip-gram模型
+
+
+
+## 3 基于Negative Sampling模型
+
+
+
+### 3.1 CBOW模型
 

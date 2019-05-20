@@ -29,7 +29,7 @@ $$
 
 1. 如果$\theta$已知，$data$是变量，这个函数叫做概率函数(probability function)，它描述对于不同的样本点$data$，其出现的概率是多少。
 
-   比如抛硬币，已知正反面（H、T）的概率各为$p_H=p_T=\frac{1}{2}$,$p(H|\theta)=\frac{1}{2}、p(HH|\theta)=p_H\times p_H$
+   比如抛硬币，已知正反面（H、T）的概率各为$p_H=p_T=\frac{1}{2}​$,$p(H|\theta)=\frac{1}{2}、p(HH|\theta)=p_H\times p_H​$
 
    
 
