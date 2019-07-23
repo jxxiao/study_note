@@ -1,4 +1,4 @@
-#  从Seq2Seq到Attention再到Transformer
+# 从Seq2Seq到Attention再到Transformer
 
 本文将会梳理一遍我最近学习Transformer的总结，将会分为三个部分,第一部分RNN，第二部分Encoder-Decoder和最基础的attention（。第三部分Transformer，Transformer中有很多东西都可以更加细化，比如attention有哪些，normalization等等，这些将会单独再补。
 
@@ -12,7 +12,6 @@ Seq2Seq解决的主要是输入和输出不等长的问题，例如输入长度�
 $$
 y_{t}=f(h_{t-1},c)
 $$
-
 
 ## 2 Attention
 
@@ -43,8 +42,7 @@ $$
 
 ## 3 Transformer
 
-
-#### self-attention
+### self-attention
 
 $$
 a^i = Wx^i
@@ -61,7 +59,7 @@ $$
 \alpha_{1,i}=q^1 \cdot k^i/\sqrt{d}
 $$
 
-![](http://ww1.sinaimg.cn/large/006tNc79ly1g4yo28i3npj313j0u0q9w.jpg)
+![Self-attention](http://ww1.sinaimg.cn/large/006tNc79ly1g4yo28i3npj313j0u0q9w.jpg)
 
 之后对$(\alpha_{1,1},\alpha_{1,2},...,\alpha_{1,j})$做softmax得到$(\hat{\alpha}_{1,1},\hat{\alpha}_{1,2},...,\hat{\alpha}_{1,j})$。
 
@@ -69,7 +67,7 @@ $$
 b^1=\sum_{i}\hat{\alpha}_{1,i}v^{i}
 $$
 
-![](http://ww3.sinaimg.cn/large/006tNc79ly1g4yovr539vj313y0u015m.jpg)
+![并行](http://ww3.sinaimg.cn/large/006tNc79ly1g4yovr539vj313y0u015m.jpg)
 
 总结公式为:
 $$
@@ -85,23 +83,21 @@ O = V\hat{A}
 $$
 I为词向量，先分别得到$QKV$，再得到$\hat{A}=softmax(K^TQ)$，之后得到输出O。
 
-#### multi-head Self-attention
+### multi-head Self-attention
 
 多头attention可以理解为我们用多个attention去关注不同层次的信息。比如一句话中出现it，多头attention就会关注多种it的可能性。在Transformer中为8头。
 
-![](http://ww3.sinaimg.cn/large/006tNc79ly1g4yoxz4h4rj31450u00yy.jpg)
+![multi-head Self-attention](http://ww3.sinaimg.cn/large/006tNc79ly1g4yoxz4h4rj31450u00yy.jpg)
 
-#### Positional Encoding
+### Positional Encoding
 
 在上面的过程中，实际上我们并没有用位置信息，我打你和你打我的结果是一样的，所以，在这里加入位置信息。是通过直接把一个位置信息$e^i$，add到a上去（不是append）。
 
-![](http://ww1.sinaimg.cn/large/006tNc79ly1g4yozx2vwfj313z0u0q9n.jpg)
+![Positional Encoding](http://ww1.sinaimg.cn/large/006tNc79ly1g4yozx2vwfj313z0u0q9n.jpg)
 
+### Transformer
 
-
-#### Transformer
-
-![](http://ww2.sinaimg.cn/large/006tNc79ly1g59lzzv5lhj312a0seagq.jpg)
+![Transformer](http://ww2.sinaimg.cn/large/006tNc79ly1g59lzzv5lhj312a0seagq.jpg)
 
 上图左边为Encoder过程右边为Decoder过程，$N\times$代表这个过程才重复几次。
 
@@ -114,7 +110,7 @@ Eocoder过程：
 Decoder过程：
 
 1. 输入Output Embedding，再加上位置信息。
-2.  Mask Multi-Head Attention： 只会attend到已经产生的句子。举个例子，再翻译（我爱你，I love you）的时候，当我们生成love的时候只会attention到I，因为you还没有产生。
+2. Mask Multi-Head Attention： 只会attend到已经产生的句子。举个例子，再翻译（我爱你，I love you）的时候，当我们生成love的时候只会attention到I，因为you还没有产生。
 3. Multi-Head Attention，attend到Encoder的输出，再Add&Norm。注意这里Attention的箭头，三个箭头两个来自Encoder，一个来自Masked Multi-Head Attention，这是说明K和V来自Encoder，Q来自Masked Multi-Head Attention。
 4. 前馈神经网络之后再add&Norm。
 
@@ -134,11 +130,8 @@ $t_3$时刻：Output Embedding输入[<Bos> I am a]，得到结果student
 
 $t_4$时刻：Output Embedding输入[<Bos> I am a  student]，得到结果<EOS>。
 
-
-
 本文基本参考台湾大学李宏毅老师的课程，推荐观看李宏毅老师讲解Seq2Seq和Transformer。
 
 推荐阅读
 
 [Transformer](https://jalammar.github.io/illustrated-transformer/),中文版本在这[中文版本](https://blog.csdn.net/qq_41664845/article/details/84969266)
-
