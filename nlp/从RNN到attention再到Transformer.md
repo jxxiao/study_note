@@ -1,6 +1,6 @@
 # 从Seq2Seq到Attention再到Transformer
 
-本文将会梳理一遍我最近学习Transformer的总结，将会分为三个部分,第一部分RNN，第二部分Encoder-Decoder和最基础的attention（。第三部分Transformer，Transformer中有很多东西都可以更加细化，比如attention有哪些，normalization等等，这些将会单独再补。
+本文将会梳理一遍我最近学习Transformer的总结，将会分为三个部分,第一部分Seq2Seq，第二部分最基础的attention。第三部分Transformer，Transformer中有很多东西都可以更加细化，比如attention有哪些，normalization等等，这些将会单独再补。
 
 ## 1 Seq2Seq
 
@@ -89,6 +89,8 @@ I为词向量，先分别得到$QKV$，再得到$\hat{A}=softmax(K^TQ)$，之后
 
 ![multi-head Self-attention](http://ww3.sinaimg.cn/large/006tNc79ly1g4yoxz4h4rj31450u00yy.jpg)
 
+捋一下维度的信息，Transformer中的词向量的维度是512维，但是我们在得到QKV的时候会降到64维，所以会做一个8头attention，结束之后把这8个attention append起来，又会得到512维。
+
 ### Positional Encoding
 
 在上面的过程中，实际上我们并没有用位置信息，我打你和你打我的结果是一样的，所以，在这里加入位置信息。是通过直接把一个位置信息$e^i$，add到a上去（不是append）。
@@ -105,7 +107,7 @@ Eocoder过程：
 
 1. 先输入Input Embedding，再把位置信息加入进去。
 2. 经过一个Multi-Head Attention得到结果，再把未经过多头机制的数据和这个结果相加(add & Norm)，再做一个Layer Normalization(会单独开一篇出来讲Normalization)。
-3. 通过一个前馈网络之后再add&Norm。
+3. 通过一个前馈网络之后再add&Norm。这个地方是接收Multi-Head Attention append后的结果再处理。
 
 Decoder过程：
 
@@ -113,8 +115,6 @@ Decoder过程：
 2. Mask Multi-Head Attention： 只会attend到已经产生的句子。举个例子，再翻译（我爱你，I love you）的时候，当我们生成love的时候只会attention到I，因为you还没有产生。
 3. Multi-Head Attention，attend到Encoder的输出，再Add&Norm。注意这里Attention的箭头，三个箭头两个来自Encoder，一个来自Masked Multi-Head Attention，这是说明K和V来自Encoder，Q来自Masked Multi-Head Attention。
 4. 前馈神经网络之后再add&Norm。
-
-
 
 仔细看上面的过程，实际上只有Encoder过程是并行的，Decoder还是一个一个弹出结果的。
 
