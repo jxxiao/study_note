@@ -7,3 +7,5 @@
 19.04.11 更新零零散散的知识，最近会主要更新nlp的一些知识，包括word2vec，Bert等。
 
 19.07.23 更新Transformer，即将更新Bert。
+
+19.08.04 更新ELMo、BERT、GPT。
