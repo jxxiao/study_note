@@ -18,7 +18,7 @@ $\boldsymbol{\sigma}=\left(\sigma_{1}, \ldots, \sigma_{m}\right)^{\top}$，$\sig
 
 >1. $S=\left(z_{1}, z_{2}, \ldots, z_{m}\right)=\left(\left(x_{1}, y_{1}\right),\left(x_{2}, y_{2}\right), \ldots,\left(x_{m}, y_{m}\right)\right)$
 >2. $g\left(z_{i}\right)$表示用于之对应的假设 h 来预测$y_i$所产生的错误。
->3. Rademacher变量是个取$\{-1,+1\}​$两个值的均匀随机变量，上述的期望就是基于这个均匀随机变量的分布来求的。
+>3. Rademacher变量是个取$\{-1,+1\}$两个值的均匀随机变量，上述的期望就是基于这个均匀随机变量的分布来求的。
 >4. 上述式子可改写成:
 >
 > $$
@@ -65,7 +65,7 @@ Proof:
 >   \Phi(S)=\sup _{g \in G}\left(E[g]-\widehat{E}_{S}[g]\right)
 >   $$
 >
->3. 令$S,S^{'}$为两个大小为m的样本，这两个样本中只有一个点不同，例如$S=\left(z_{1}, \dots, z_{m-1}, z_{m}\right), S^{\prime}=\left(z_{1}, z_{2}, \dots, z_{m-1}, z_{m}^{\prime}\right)​$
+>3. 令$S,S^{'}$为两个大小为m的样本，这两个样本中只有一个点不同，例如$S=\left(z_{1}, \dots, z_{m-1}, z_{m}\right), S^{\prime}=\left(z_{1}, z_{2}, \dots, z_{m-1}, z_{m}^{\prime}\right)$
 >
 >4. 根据最大值的差一定不超过差的最大值，可得:
 >   $$
@@ -88,7 +88,7 @@ Proof:
 >   \Phi(S) \geq E[\Phi(S)]+\sqrt{\frac{\log \frac{1}{\delta}}{2 m}}
 >   $$
 >
->6. 求$E[\Phi(S)]​$的上界。
+>6. 求$E[\Phi(S)]$的上界。
 >   $$
 >   \begin{aligned} 
 >   E[\Phi(S)] &=E\left[\sup _{g \in G}\left(E[g]-\widehat{E}_{S}(g)\right)\right] \\ &=E\left[\sup _{g \in G}\left[\widehat{E}_{S^{\prime}}(g)-\widehat{E}_{S}(g)\right]\right] \\
@@ -135,7 +135,7 @@ $$
 \widehat{\mathfrak{R}}_{S}(G)=\frac{1}{2} \widehat{\mathfrak{R}}_{S_{\mathcal{X}}}(H)
 $$
 proof:
-> $$
+$$
 \begin{aligned}
 \widehat{\mathfrak{R}}_{S}(G) &=E\left[\sup _{h \in H} \frac{1}{m} \sum_{i=1}^{m} \sigma_{i} \|\left(h\left(x_{i}\right) \neq y_{i}\right)\right]\\
 &=E\left[\sup _{h \in H} \frac{1}{m} \sum_{i=1}^{m} \sigma_{i} \frac{1-y_{i} h\left(x_{i}\right)}{2}\right] \\
@@ -146,10 +146,16 @@ proof:
 &=\frac{1}{2} \widehat{\mathfrak{R}}_{S_{\mathcal{X}}}(H)\\
 \end{aligned}
 $$
+
+$$
 所以：
+$$
 $$
 \begin{array}{c}{\widehat{\mathcal{R}}(h)=\frac{1}{m} \sum_{i=1}^{m} 1_{\left(h\left(x_{i}\right) \neq y_{j}\right)}=\frac{1}{m} \sum_{i=1}^{m} g\left(x_{i}\right)=\widehat{E}_{S}[g]} \\ {\mathcal{R}(h)=E[\widehat{\mathcal{R}}(h)]=E\left[\widehat{E}_{S}[g]\right]=E[g(z)]}\end{array}
 $$
+
+
+
 
 $$
 \begin{array}{l}{\mathcal{R}(h) \leq \widehat{\mathcal{R}}(h)+\mathfrak{R}_{m}(H)+\sqrt{\frac{\log \frac{1}{\delta}}{2 m}}} \\ {\mathcal{R}(h) \leq \widehat{\mathcal{R}}(h)+\widehat{\Re}_{S}(H)+3 \sqrt{\frac{\log \frac{2}{\delta}}{2 m}}}\end{array}
@@ -158,6 +164,7 @@ $$
 $$
 \widehat{\mathfrak{R}}_{S}(H)=\underset{\sigma}{E}\left[\sup _{h \in H} \frac{1}{m} \sum_{i=1}^{m}-\delta_{i} h\left(x_{i}\right)\right]=-\underset{\delta}{E}\left[\inf _{h\in H} \frac{1}{m} \sum_{i=1}^{m} \delta_{i} h\left(x_{i}\right)\right]
 $$
+
 ## 2 增长函数 Growth Function
 
 先讲**对分(dichotomy)**的概念：
